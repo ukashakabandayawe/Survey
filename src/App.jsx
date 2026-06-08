@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
 // Replace this string with your deployed Google Apps Script Web App URL
-const GOOGLE_SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwHmBrjd26jgNgLvSUsv3kS7jSAEH0iHYpdASV2-n5dhli9yPocg5xwhGnxmJSdv-8C_A/exec";
 
 /* ─── Google Fonts injected once ─── */
 const FontInjector = () => {
@@ -536,11 +536,11 @@ export default function SmokingSurvey() {
     setIsSending(true);
     const payload = {
       timestamp: new Date().toLocaleString("ko-KR", { timeZone: "Asia/Seoul" }),
-      gender: finalAnswers.gender || "미응답",
-      smokes: finalAnswers.smokes || "미응답",
-      device: finalAnswers.device || "N/A", 
-      reasons: Array.isArray(finalAnswers.why_smoke) 
-        ? finalAnswers.why_smoke.join(", ") 
+      성별: finalAnswers.gender || "미응답",
+      흡연여부: finalAnswers.smokes || "미응답",
+      흡연방식: finalAnswers.device || "N/A",
+      이유: Array.isArray(finalAnswers.why_smoke)
+        ? finalAnswers.why_smoke.join(", ")
         : (Array.isArray(finalAnswers.why_not) ? finalAnswers.why_not.join(", ") : "N/A")
     };
 
