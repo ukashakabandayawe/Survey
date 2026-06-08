@@ -535,7 +535,7 @@ export default function SmokingSurvey() {
   const sendToGoogleSheets = async (finalAnswers) => {
     setIsSending(true);
     const payload = {
-      timestamp: new Date().toLocaleString("ko-KR", { timeZone: "Asia/Seoul" }),
+      Timestamp: new Date().toLocaleString("ko-KR", { timeZone: "Asia/Seoul" }),
       성별: finalAnswers.gender || "미응답",
       흡연여부: finalAnswers.smokes || "미응답",
       흡연방식: finalAnswers.device || "N/A",
