@@ -2,24 +2,21 @@ function doPost(e) {
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
   
   try {
-    // Parse the incoming JSON data from your React App
     var data = JSON.parse(e.postData.contents);
     
-    // Append the data matching your columns exactly
+    // Updated to exactly match your 5 remaining columns (A to E)
     sheet.appendRow([
-      data.timestamp,
-      data.gender,
-      data.smokes,
-      data.device,
-      data.reasons
+      data.Timestamp,  // Column A
+      data.성별,       // Column B
+      data.흡연여부,   // Column C
+      data.흡연방식,   // Column D
+      data.이유        // Column E
     ]);
     
-    // Return a success response
     return ContentService.createTextOutput(JSON.stringify({ "result": "success" }))
                          .setMimeType(ContentService.MimeType.JSON);
                          
   } catch (error) {
-    // Return an error response if something breaks
     return ContentService.createTextOutput(JSON.stringify({ "result": "error", "error": error.toString() }))
                          .setMimeType(ContentService.MimeType.JSON);
   }
